@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BA3C021C-9F6B-445C-91B9-DB2A131C2B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asymetric", "Asymetric\Asymetric.csproj", "{EBC94BCE-872F-44E7-9A18-FB2C039066AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asymmetric", "Asymetric\Asymmetric.csproj", "{EBC94BCE-872F-44E7-9A18-FB2C039066AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symetric", "Symetric\Symetric.csproj", "{258076BE-5BE2-4F2A-B86B-34D8A0E4CD2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symmetric", "Symetric\Symmetric.csproj", "{258076BE-5BE2-4F2A-B86B-34D8A0E4CD2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{17296EA1-999A-4D89-BC30-4D3D1C92781C}"
 EndProject

@@ -53,13 +53,13 @@
       <Project>{ba3c021c-9f6b-445c-91b9-db2a131c2b5b}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Symetric\Symetric.csproj">
+    <ProjectReference Include="..\Symetric\Symmetric.csproj">
       <Project>{258076be-5be2-4f2a-b86b-34d8a0e4cd2e}</Project>
-      <Name>Symetric</Name>
+      <Name>Symmetric</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Asymetric\Asymetric.csproj">
+    <ProjectReference Include="..\Asymetric\Asymmetric.csproj">
       <Project>{ebc94bce-872f-44e7-9a18-fb2c039066af}</Project>
-      <Name>Asymetric</Name>
+      <Name>Asymmetric</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
