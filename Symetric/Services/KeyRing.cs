@@ -6,7 +6,9 @@ namespace Security.Services
 {
     public static class KeyRing
     {
-        private static readonly string KeyRingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Keyring");
+        private const string KeyRingDirectory = "KeyRing";
+
+        private static readonly string KeyRingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), KeyRingDirectory);
 
         public static bool KeyExists(string keyId) => File.Exists(Path.Combine(KeyRingPath, keyId));
 
@@ -21,6 +23,15 @@ namespace Security.Services
         {
             if (!Directory.Exists(KeyRingPath)) Directory.CreateDirectory(KeyRingPath);
             PrivateKeyFile.Save(Path.Combine(KeyRingPath, key.Id), key);
+        }
+
+        public static void Remove(PrivateKey key)
+        {
+            if (!Directory.Exists(KeyRingPath)) return;
+
+            var filePath = Path.Combine(KeyRingPath, key.Id);
+            if (File.Exists(filePath))
+                File.Delete(filePath);
         }
     }
 }

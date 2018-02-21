@@ -25,6 +25,8 @@ namespace UnitTest
 
             KeyRing.Save(key);
             Assert.AreEqual(key, KeyRing.Load(key.Id));
+
+            KeyRing.Remove(key);
         }
 
         [TestMethod]
