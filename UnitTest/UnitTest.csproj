@@ -39,11 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AsymetricTests.cs" />
+    <Compile Include="AsymmetricTests.cs" />
     <Compile Include="CommonTests.cs" />
     <Compile Include="Examples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SymetricTests.cs" />
+    <Compile Include="SymmetricTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,12 +1,11 @@
-﻿using Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Security;
 using Security.Contracts;
 
 namespace UnitTest
 {
     [TestClass]
-    public class AsymetricTests
+    public class AsymmetricTests
     {
         private const string Cleartext = "I am the most secret secret in the world";
         private static Hash HashedText => Hashing.Hash(Cleartext, Level.Light);

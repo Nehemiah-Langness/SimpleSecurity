@@ -8,7 +8,7 @@ using Security.Services;
 namespace UnitTest
 {
     [TestClass]
-    public class SymetricTests
+    public class SymmetricTests
     {
         private const string ClearText = "Here is the sensitive cleartext information";
 
@@ -81,7 +81,6 @@ namespace UnitTest
             Console.WriteLine("Decrypted: " + decryptedNext);
             Assert.AreEqual(decryptedPrev, decryptedNext);
         }
-
 
         [TestMethod]
         public void WriteTests()
