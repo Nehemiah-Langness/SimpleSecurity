@@ -10,7 +10,7 @@ namespace Common
         /// <summary>
         /// Returns UTF8 bytes for the string
         /// </summary>
-        public static byte[] ToBytes(this string text) => Encoding.UTF8.GetBytes(text);
+        public static byte[] ToBytes(this string text) => text == null ? new byte[0] : Encoding.UTF8.GetBytes(text);
 
         /// <summary>
         /// Returns a string from UTF8 bytes
