@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Security.Common;
 
 namespace Security.Services
 {

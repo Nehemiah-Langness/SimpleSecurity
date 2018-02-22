@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Common;
-using Common.Bases;
+using Security.Common;
+using Security.Common.Bases;
 using Security.Utilities;
 
 namespace Security.App

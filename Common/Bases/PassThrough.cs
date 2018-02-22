@@ -1,4 +1,4 @@
-﻿namespace Common.Bases
+﻿namespace Security.Common.Bases
 {
     public abstract class PassThrough<T>
     {

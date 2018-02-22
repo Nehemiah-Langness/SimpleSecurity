@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Security</RootNamespace>
-    <AssemblyName>Security</AssemblyName>
+    <AssemblyName>Security.Asymmetric</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hashing.cs" />
+    <Compile Include="Services\Extensions.cs" />
+    <Compile Include="Services\Hashing.cs" />
     <Compile Include="Contracts\Level.cs" />
     <Compile Include="Hash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,6 +51,9 @@
       <Project>{ba3c021c-9f6b-445c-91b9-db2a131c2b5b}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Asymmetric.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

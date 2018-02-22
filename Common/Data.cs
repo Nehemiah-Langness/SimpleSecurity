@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Common.Bases;
+using Security.Common.Bases;
 
-namespace Common
+namespace Security.Common
 {
 #pragma warning disable 660, 661, CS0659    // GetHashCode overidden in base class
 

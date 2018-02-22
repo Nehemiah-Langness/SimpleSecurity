@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Common.Bases
+namespace Security.Common.Bases
 {
     public abstract class PassThroughList<T, TObj> : PassThroughEnumerable<T, TObj>, IReadOnlyList<TObj>
         where T : IReadOnlyList<TObj>

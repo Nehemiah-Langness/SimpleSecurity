@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Common
+namespace Security.Common
 {
     public static class Extensions
     {

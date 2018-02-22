@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Common.Bases
+namespace Security.Common.Bases
 {
     public abstract class PassThroughEnumerable<T> : PassThrough<T>, IEnumerable 
         where T : IEnumerable

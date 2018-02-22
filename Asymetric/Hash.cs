@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using Security.Common;
 using Security.Contracts;
+using Security.Services;
 
 namespace Security
 {
@@ -9,14 +10,15 @@ namespace Security
     {
         private readonly IReadOnlyList<byte> _salt;
         private readonly Data _saltedHash;
+        private IEnumerable<byte> AllBytes => _salt.Concat(_saltedHash.ToArray());
 
-        public Hash(string order, Level? saltiness = null) 
-            : this(order, Hashing.GetSalt(saltiness ?? Hashing.SaltLevel)) { }
+        public Hash(string text, Level? saltiness = null) 
+            : this(text, Hashing.GetSalt(saltiness ?? Hashing.SaltLevel)) { }
 
-        private Hash(string order, IReadOnlyList<byte> salt)
+        private Hash(string text, IReadOnlyList<byte> salt)
         {
             _salt = salt;
-            _saltedHash = Hashing.GetSaltedHash(order, _salt);
+            _saltedHash = Hashing.GetSaltedHash(text, _salt);
         }
 
         public Hash(IReadOnlyList<byte> saltedHash, Level? saltiness = null)
@@ -28,12 +30,23 @@ namespace Security
             _saltedHash = new Data(splitValues.SecondSegment);
         }
 
-        public bool Compare(string hash) => Compare(new Hash(hash, _salt));
+        public bool Compare(string text) => Compare(new Hash(text, _salt));
 
         public bool Compare(Hash hash) => _saltedHash.ToArray().SlowEquals(hash._saltedHash.ToArray());
 
-        public byte[] ToArray() => _salt.Concat(_saltedHash.ToArray()).ToArray();
+        /// <summary>
+        /// Returns a base 64 string of the hashed value.
+        /// </summary>
+        public override string ToString() => _saltedHash.ToBase64();
 
-        public override string ToString() => _saltedHash.ToString();
+        /// <summary>
+        /// Returns all bytes in this hashing context, including salt.
+        /// </summary>
+        public byte[] ToArray() => AllBytes.ToArray();
+
+        /// <summary>
+        /// Returns a base 64 string of all data needed to rebuild this hashing context, including salt.
+        /// </summary>
+        public string Serialize() => AllBytes.ToBase64();
     }
 }

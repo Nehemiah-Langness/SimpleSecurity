@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Security</RootNamespace>
-    <AssemblyName>SecureStreams</AssemblyName>
+    <AssemblyName>Security.Symmetric</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -65,15 +65,13 @@
     <Compile Include="Utilities\EncryptingStreamWriter.cs" />
     <Compile Include="Services\Extensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Symmetric.nuspec" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{ba3c021c-9f6b-445c-91b9-db2a131c2b5b}</Project>
       <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Asymetric\Asymmetric.csproj">
-      <Project>{ebc94bce-872f-44e7-9a18-fb2c039066af}</Project>
-      <Name>Asymmetric</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

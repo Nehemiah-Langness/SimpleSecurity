@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using Common;
+using Security.Common;
 using Security.Contracts;
 
-namespace Security
+namespace Security.Services
 {
     public static class Hashing
     {

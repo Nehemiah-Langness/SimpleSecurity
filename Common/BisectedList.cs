@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Common
+namespace Security.Common
 {
     public class BisectedList<T> : IEnumerable<T>
     {

@@ -1,6 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Security;
 using Security.Contracts;
+using Security.Services;
 
 namespace UnitTest
 {
@@ -35,6 +37,19 @@ namespace UnitTest
             var hashedBytes = HashedText.ToArray();
 
             var reHashedValue = new Hash(hashedBytes, Level.Light);
+
+            Assert.IsTrue(reHashedValue.Compare(Cleartext));
+        }
+
+        [TestMethod]
+        public void CompareHashToBase64Representation()
+        {
+            var notValid = HashedText.ToString();
+            var hashedString = HashedText.Serialize();
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => notValid.AsHash(Level.Light));
+
+            var reHashedValue = hashedString.AsHash(Level.Light);
 
             Assert.IsTrue(reHashedValue.Compare(Cleartext));
         }
