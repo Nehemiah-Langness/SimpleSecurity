@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Security.App;
 using Security.Services;
+using Security.Services.Files;
 
 namespace UnitTest
 {

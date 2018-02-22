@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Common;
-using Security.Contracts;
+using Security.Services.Files;
 
 namespace Security.App
 {
@@ -9,17 +9,22 @@ namespace Security.App
 
     public class PrivateKey
     {
-        public PrivateKey(byte[] key, byte[] initializationVector)
+        public PrivateKey(string alias, byte[] key, byte[] initializationVector)
         {
             Key = key;
             InitializationVector = initializationVector;
 
-            Id = BitConverter.ToString(Hashing.Hash(new EncryptedString(Key.Concat(InitializationVector).ToArray()), Level.Normal).ToArray()).Replace("-", "").Last(6);
+            var id = BitConverter.ToString(Key.Take(2).Concat(InitializationVector.Take(2)).ToArray()).Replace("-", "").Last(8);
+            Alias = new KeyAlias(alias, id);
         }
 
-        public readonly string Id; 
+
+        public string Id => Alias.Id;
+        public readonly KeyAlias Alias;
+
         public readonly byte[] Key;
         public readonly byte[] InitializationVector;
+
 
         public override bool Equals(object obj)
         {

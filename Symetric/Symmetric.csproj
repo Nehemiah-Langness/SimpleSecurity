@@ -43,8 +43,12 @@
     <Compile Include="Base\DataStreamWriter.cs" />
     <Compile Include="Contracts\AccessMode.cs" />
     <Compile Include="Base\DataStreamReader.cs" />
+    <Compile Include="App\AliasListing.cs" />
+    <Compile Include="Services\Files\AliasFile.cs" />
+    <Compile Include="Services\Files\BinaryFile.cs" />
     <Compile Include="Services\EncryptedFile.cs" />
-    <Compile Include="Services\PrivateKeyFile.cs" />
+    <Compile Include="App\KeyAlias.cs" />
+    <Compile Include="Services\Files\PrivateKeyFile.cs" />
     <Compile Include="Utilities\DecryptingStreamReader.cs" />
     <Compile Include="Services\DecryptingStream.cs" />
     <Compile Include="Services\Cryptography.cs" />

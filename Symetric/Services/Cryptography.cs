@@ -6,10 +6,10 @@ namespace Security.Services
 {
     public static class Cryptography
     {
-        public static PrivateKey GenerateKey()
+        public static PrivateKey GenerateKey(string alias = null)
         {
             using (var algorithm = Rijndael.Create())
-                return new PrivateKey(algorithm.Key, algorithm.IV);
+                return new PrivateKey(alias, algorithm.Key, algorithm.IV);
         }
 
         public static EncryptedString Encrypt(string text, PrivateKey key)

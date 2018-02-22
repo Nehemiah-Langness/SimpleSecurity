@@ -4,6 +4,7 @@ using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Security.App;
 using Security.Services;
+using Security.Services.Files;
 
 namespace UnitTest
 {
@@ -20,13 +21,42 @@ namespace UnitTest
         [TestMethod]
         public void TestId()
         {
-            var key = Cryptography.GenerateKey();
-            Console.WriteLine(key.Id);
+            const string keyAlias = "My Test Key";
+            var key = Cryptography.GenerateKey(keyAlias);
 
-            KeyRing.Save(key);
-            Assert.AreEqual(key, KeyRing.Load(key.Id));
+            Console.WriteLine($"Key Id: {key.Id}");
+            Console.WriteLine($"Key Alias: {key.Alias}");
 
-            KeyRing.Remove(key);
+            Console.WriteLine("Saving Key");
+            key.Save();
+
+            Console.WriteLine($"Loading Key: {key.Id}");
+            Assert.AreEqual(key, key.Id.Load());
+
+            Console.WriteLine($"Loading Key: {keyAlias}");
+            Assert.AreEqual(key, keyAlias.Load());
+
+            Console.WriteLine("Removing key");
+            key.Remove();
+        }
+
+        [TestMethod]
+        public void TestLoadOrCreate()
+        {
+            const string keyAlias = "LoadOrCreate-Test";
+
+            // Make sure key is not present
+            var key = KeyRing.LoadOrCreate(keyAlias);
+            var id1 = key.Id;
+            key.Remove();
+            
+            var created = KeyRing.LoadOrCreate(keyAlias);
+            Assert.IsNotNull(created);
+            Assert.AreNotEqual(id1, created.Id);
+
+            var loaded = KeyRing.LoadOrCreate(keyAlias);
+            Assert.IsNotNull(loaded);
+            Assert.AreEqual(created.Id, loaded.Id);
         }
 
         [TestMethod]
@@ -66,8 +96,6 @@ namespace UnitTest
             Console.WriteLine("Cleartext: " + ClearText);
             var encrypted = Encrypt(ClearText);
             Console.WriteLine("Encrypted: " + encrypted);
-
-
 
             var decryptedPrev = Decrypt(encrypted);
             Console.WriteLine("Decrypted: " + decryptedPrev);
