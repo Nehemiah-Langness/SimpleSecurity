@@ -9,9 +9,12 @@ namespace Security.Services
     {
         private const string KeyRingDirectory = "KeyRing";
         private const string AliasFilename = ".aliases";
+        private static readonly string DefaultKeyRingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), KeyRingDirectory);
 
-        private static readonly string KeyRingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), KeyRingDirectory);
+        private static string KeyRingPath => ApplicationKeyRingPath ?? DefaultKeyRingPath;
         private static string GetPath(string file) => Path.Combine(KeyRingPath, file);
+
+        public static string ApplicationKeyRingPath = null;
 
         /// <summary>
         /// Check if a key with a given id exists
